@@ -15,47 +15,43 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { createJob } from "@/lib/api"
 
 const formSchema = z.object({
-  titulo: z.string().min(2, {
+  job_title: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  requisito: z.string().min(2, {
+  job_requirements: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  curso: z.string().min(2, {
+  job_category: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  bolsa: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  tipo: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  turno: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
- imagem: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  job_pay: z.string(),
+
+  job_type: z.string(),
+
+  job_shift: z.string(),
+  
+  job_image: z.string(),
 })
 
 const CreateJob = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-     titulo: "",
-     requisito:"",
-     curso:"",
-     tipo:"",
-     turno:"",
-     bolsa:"",
-     imagem:"",
+      job_title: "",
+      job_requirements: "",
+      job_category: "",
+      job_type: "",
+      job_shift: "",
+      job_pay: "",
+      job_image: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const success = await createJob(values)
   }
   return (
     <main className="mx-10 max-w-5xl text-2xl gap-2 my-10">
@@ -65,7 +61,7 @@ const CreateJob = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
-              name="titulo"
+              name="job_title"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Título</FormLabel>
@@ -78,7 +74,7 @@ const CreateJob = () => {
             />
             <FormField
               control={form.control}
-              name="requisito"
+              name="job_requirements"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Requisitos</FormLabel>
@@ -91,7 +87,7 @@ const CreateJob = () => {
             />
             <FormField
               control={form.control}
-              name="bolsa"
+              name="job_pay"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Bolsa-auxílio</FormLabel>
@@ -104,7 +100,7 @@ const CreateJob = () => {
             />
             <FormField
               control={form.control}
-              name="turno"
+              name="job_shift"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Turno</FormLabel>
@@ -117,7 +113,7 @@ const CreateJob = () => {
             />
             <FormField
               control={form.control}
-              name="curso"
+              name="job_category"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Curso</FormLabel>
@@ -130,7 +126,7 @@ const CreateJob = () => {
             />
             <FormField
               control={form.control}
-              name="tipo"
+              name="job_type"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Tipo</FormLabel>
@@ -143,7 +139,7 @@ const CreateJob = () => {
             />
             <FormField
               control={form.control}
-              name="imagem"
+              name="job_image"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Imagem</FormLabel>
