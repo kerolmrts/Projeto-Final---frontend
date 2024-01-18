@@ -48,7 +48,7 @@ export function AdminSidebar({ className }: { className?: string }) {
         <div className="flex items-center justify-between">
           <Link href="/">
           <h2 className="text-lg font-semibold tracking-tight">
-            Afiliado Store
+           Estágios RN
           </h2>
           </Link>
           <ModeToggle />
@@ -74,20 +74,20 @@ export function AdminSidebar({ className }: { className?: string }) {
         </div>
         <div className="py-2">
           <h2 className="mb-2 text-lg font-semibold tracking-tight">
-            Products
+            Jobs
           </h2>
           <div className="space-y-1">
-            <Link href="/admin/products">
+            <Link href="/admin/jobs">
               <Button variant="ghost" className="w-full justify-start gap-2">
                 <FiPackage />
-                Todos os produtos
+                Todas as Vagas
               </Button>
             </Link>
 
-            <Link href="/admin/products/create">
+            <Link href="/admin/jobs/create">
               <Button variant="ghost" className="w-full justify-start gap-2">
                 <LuPackagePlus />
-                Criar produto
+                Criar Vaga
               </Button>
             </Link>
           </div>
