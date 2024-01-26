@@ -54,37 +54,17 @@ export function AdminSidebar({ className }: { className?: string }) {
           <ModeToggle />
         </div>
         <Search className="lg:w-full" />
+        
         <div className="py-2">
-          <h2 className="mb-2 text-lg font-semibold tracking-tight">Admin</h2>
           <div className="space-y-1">
             <Link href="/admin">
-              <Button variant="ghost" className="w-full justify-start gap-2">
-                <MdOutlineDashboard />
-                Dashboard
-              </Button>
-            </Link>
-
-            <Link href="/admin/settings">
-              <Button variant="ghost" className="w-full justify-start gap-2">
-                <MdOutlineSettings />
-                Settings
-              </Button>
-            </Link>
-          </div>
-        </div>
-        <div className="py-2">
-          <h2 className="mb-2 text-lg font-semibold tracking-tight">
-            Jobs
-          </h2>
-          <div className="space-y-1">
-            <Link href="/admin/jobs">
               <Button variant="ghost" className="w-full justify-start gap-2">
                 <FiPackage />
                 Todas as Vagas
               </Button>
             </Link>
 
-            <Link href="/admin/jobs/create">
+            <Link href="/admin/create">
               <Button variant="ghost" className="w-full justify-start gap-2">
                 <LuPackagePlus />
                 Criar Vaga
