@@ -22,17 +22,20 @@ const formSchema = z.object({
     message: "Username must be at least 2 characters.",
   }),
   job_requirements: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Requirements must be at least 10 characters.",
+  }),
+  job_description: z.string().min(2, {
+    message: "Description must be at least 20 characters.",
   }),
   job_category: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Category must be at least 10 characters.",
   }),
   job_pay: z.string(),
 
   job_type: z.string(),
 
   job_shift: z.string(),
-  
+
   job_image: z.string(),
 })
 

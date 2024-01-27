@@ -1,86 +1,137 @@
 "use client"
 import Navbar from "@/components/Navbar"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import Carousel from "@/components/Carousel"
 import Link from "next/link"
 import * as React from "react"
-import Autoplay from "embla-carousel-autoplay"
-
+import { Card } from "@/components/ui/card"
+import { FiCheckCircle } from "react-icons/fi"
 
 export default function Home() {
-  const plugin = React.useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-5xl text-2xl gap-2 my-10">
+      <main className="mx-auto text-2xl my-10 container ">
         <h1 className="flex font-bold m-14">
-          As melhores vagas de estágio do RN
+          Bem-vindo ao Portal de Estágios do Rio Grande do Norte
         </h1>
-        <div className="flex gap-3 w-[1100px] mx-auto flex-wrap justify-start">
-          <div className="flex gap-10 w-full">
-            <div className="w-1/2">
-              <Carousel
-                plugins={[plugin.current]}
-                onMouseEnter={plugin.current.stop}
-                onMouseLeave={plugin.current.reset}
-                >
-                <CarouselContent>
-                  <CarouselItem>
-                    {" "}
-                    <img
-                      src="/vaga1.jpeg"
-                      alt=""
-                      className="w-full h-72 object-cover"
-                    />
-                  </CarouselItem>
-                  <CarouselItem>
-                    {" "}
-                    <img
-                      src="/vaga2.jpeg"
-                      alt=""
-                      className="w-full h-72 object-cover"
-                    />
-                  </CarouselItem>
-                  <CarouselItem>
-                    {" "}
-                    <img
-                      src="/vaga3.jpeg"
-                      alt=""
-                      className="w-full h-72 object-cover"
-                    />
-                  </CarouselItem>
-                </CarouselContent>
-              </Carousel>
+        <div className="flex flex-col-2 w-full">
+          <section>
+            <h3 className="font-bold text-2xl">Estágio</h3>
+            <div className="text-justify m-5">
+              <p>
+                Se você tem a partir de 16 anos, quer desenvolver novas
+                habilidades e adquirir experiência na prática, o nosso programa
+                de estágio te oferece isso e muito mais! Comece agora sua
+                jornada profissional de sucesso.
+              </p>
+              <ul>
+                <li className="flex gap-2 m-5">
+                  <FiCheckCircle />
+                  Até 6h diárias e 30h semanais
+                </li>
+                <li className="flex gap-2 m-5">
+                  <FiCheckCircle />
+                  Pagamento de bolsa-auxílio
+                </li>
+                <li className="flex gap-2 m-5">
+                  <FiCheckCircle />
+                  Auxílio-transporte e recesso remunerado
+                </li>
+                <li className="flex gap-2 m-5">
+                  <FiCheckCircle />
+                  Interação diária com diversos profissionais e campos de
+                  atuação.
+                </li>
+              </ul>
             </div>
-            <div className="w-1/2">
-          <Card className=" flex w-56 h-56">
-            <CardHeader>
+            <img
+              className="rounded-xl hover:scale-110 transition-transform duration-100"
+              src="/estagiario.jpg"
+              alt="estagiario"
+            />
+          </section>
+          <section>
+            <div>
               <img
-                src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
-                alt=""
-                className="w-48 h-48 object-cover"
+                className="rounded-xl hover:scale-110 transition-transform duration-100"
+                src="/aprendiz.jpg"
+                alt="aprendiz"
               />
-            </CardHeader>
-            <CardContent>
-               <p>Descrição</p>
-            </CardContent>
-            <CardFooter>
-              <p className="text-base">Publicada em</p>
-            </CardFooter>
-          </Card>
-              <p>olaaaaaaaaa</p>
+
+              <div className="">
+                <h4 className="font-bold text-2xl mt-5">Jovem Aprendiz</h4>
+                <p className="text-justify m-5">
+                  Tem de 14 a 24 anos, está na escola ou já concluiu o ensino
+                  médio e quer trabalhar? O Programa Jovem Aprendiz é para você!
+                </p>
+                <ul>
+                  <li className="flex gap-2 m-5">
+                    <FiCheckCircle />
+                    Contrato de 4h ou 6h diárias com direito a carteira assinada
+                  </li>
+                  <li className="flex gap-2 m-5">
+                    <FiCheckCircle />
+                    Salário mínimo/hora
+                  </li>
+                  <li className="flex gap-2 m-5">
+                    <FiCheckCircle />
+                    Vale transporte, 13º salário, INSS, férias
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div className="flex mt-20 w-auto mx-10 border-t-4 p-10 border-card-foreground/15">
+          <div className="flex gap-4">
+            <Carousel />
+
+            <div className="flex flex-col w-[40%] gap-3">
+              <Card className="mt-5">
+                <div className="flex">
+                  <img
+                    src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
+                    alt=""
+                    className="w-52 object-cover"
+                  />
+                  <div className="flex flex-col justify-between">
+                    <p className="text-sm font-bold ">Descrição aaaaaaaaaaa</p>
+                    <p className="text-sm">Publicada em</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="">
+                <div className="flex">
+                  <img
+                    src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
+                    alt=""
+                    className="w-52 object-cover"
+                  />
+                  <div className="flex flex-col justify-between">
+                    <p className="">Descrição</p>
+                    <p className="text-sm">Publicada em</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="">
+                <div className="flex">
+                  <img
+                    src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
+                    alt=""
+                    className="w-52 object-cover"
+                  />
+                  <div className="flex flex-col justify-between">
+                    <p className="">Descrição</p>
+                    <p className="text-sm">Publicada em</p>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
       </main>
-      <div className="bg-popover-foreground/15">
+      <footer className="bg-popover-foreground/15">
         <div className="flex h-14 justify-between items-center container">
           <div>
             <p>
@@ -107,7 +158,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div>
+      </footer>
     </>
   )
 }

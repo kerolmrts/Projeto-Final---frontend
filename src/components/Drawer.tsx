@@ -32,7 +32,7 @@ export function Drawer() {
           </div>
           
             <div className="space-y-1">
-              <Link href="/admin">
+              <Link href="/vagas">
                 <Button variant="ghost" className="w-full justify-start gap-2">
                   <FiBriefcase/>
                   Todas as Vagas
