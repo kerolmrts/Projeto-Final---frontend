@@ -39,10 +39,10 @@ export function Drawer() {
                 </Button>
               </Link>
 
-              <Link href="/admin/create">
+              <Link href="/auth">
                 <Button variant="ghost" className="w-full justify-start gap-2">
                   <FiUser />
-                 Admin
+                Login
                 </Button>
               </Link>
             </div>

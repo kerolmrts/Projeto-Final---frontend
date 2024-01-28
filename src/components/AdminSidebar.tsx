@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import Search from "@/components/Search"
 import { ModeToggle } from "./ModeToggle"
 import { MdOutlineSettings, MdOutlineDashboard } from "react-icons/md"
-import { FiPackage } from "react-icons/fi"
+import { FiPackage, FiUser } from "react-icons/fi"
 import { LuPackagePlus } from "react-icons/lu"
 import Link from "next/link"
 
@@ -47,14 +47,14 @@ export function AdminSidebar({ className }: { className?: string }) {
       <div className="space-y-4 py-4 px-2">
         <div className="flex items-center justify-between">
           <Link href="/">
-          <h2 className="text-lg font-semibold tracking-tight">
-           Estágios RN
-          </h2>
+            <h2 className="text-lg font-semibold tracking-tight">
+              Estágios RN
+            </h2>
           </Link>
           <ModeToggle />
         </div>
         <Search className="lg:w-full" />
-        
+
         <div className="py-2">
           <div className="space-y-1">
             <Link href="/admin">
@@ -68,6 +68,12 @@ export function AdminSidebar({ className }: { className?: string }) {
               <Button variant="ghost" className="w-full justify-start gap-2">
                 <LuPackagePlus />
                 Criar Vaga
+              </Button>
+            </Link>
+            <Link href="/profile">
+              <Button variant="ghost" className="w-full justify-start gap-2">
+                <FiUser/>
+              Criar Usuário
               </Button>
             </Link>
           </div>
