@@ -15,7 +15,7 @@ export function Drawer() {
  
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Button variant="ghost" size="icon">
           <FiMenu className="text-primary" />
         </Button>

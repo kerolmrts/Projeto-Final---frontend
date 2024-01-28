@@ -6,6 +6,7 @@ import Link from "next/link"
 import * as React from "react"
 import { Card } from "@/components/ui/card"
 import { FiCheckCircle } from "react-icons/fi"
+import CardCarousel from "@/components/CardCarousel"
 
 export default function Home() {
   return (
@@ -88,45 +89,8 @@ export default function Home() {
             <Carousel />
 
             <div className="flex flex-col w-[40%] gap-3">
-              <Card className="mt-5">
-                <div className="flex">
-                  <img
-                    src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
-                    alt=""
-                    className="w-52 object-cover"
-                  />
-                  <div className="flex flex-col justify-between">
-                    <p className="text-sm font-bold ">Descrição aaaaaaaaaaa</p>
-                    <p className="text-sm">Publicada em</p>
-                  </div>
-                </div>
-              </Card>
-              <Card className="">
-                <div className="flex">
-                  <img
-                    src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
-                    alt=""
-                    className="w-52 object-cover"
-                  />
-                  <div className="flex flex-col justify-between">
-                    <p className="">Descrição</p>
-                    <p className="text-sm">Publicada em</p>
-                  </div>
-                </div>
-              </Card>
-              <Card className="">
-                <div className="flex">
-                  <img
-                    src="https://www.defensoria.rn.def.br/media/noticia_imagem/DSC_0353_CAPA.jpg"
-                    alt=""
-                    className="w-52 object-cover"
-                  />
-                  <div className="flex flex-col justify-between">
-                    <p className="">Descrição</p>
-                    <p className="text-sm">Publicada em</p>
-                  </div>
-                </div>
-              </Card>
+              
+             <CardCarousel />
             </div>
           </div>
         </div>

@@ -5,7 +5,16 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatDate(dataString: string) {
+export function formatDate(dataString: any) {
   const data = new Date(dataString)
-  return data.toISOString()
+  const options: object = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  }
+  const formatadorDeData = new Intl.DateTimeFormat("pt-BR", options)
+  return formatadorDeData.format(data)
 }

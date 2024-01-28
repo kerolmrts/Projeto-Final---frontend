@@ -1,5 +1,4 @@
 "use client"
-
 import * as React from "react"
 import * as z from "zod"
 import { cn } from "@/lib/utils"
@@ -9,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
-
 import {
   Form,
   FormControl,
@@ -53,9 +51,6 @@ export function UserLoginForm({ className, ...props }: UserAuthFormProps) {
       const response = await authUser(values)
       if (response) {
         login(response)
-        {
-        alert("Login realizado com sucesso!")
-        }
         form.reset()
         router.push("/admin")
       

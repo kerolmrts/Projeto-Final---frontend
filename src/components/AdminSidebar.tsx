@@ -4,10 +4,11 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import Search from "@/components/Search"
 import { ModeToggle } from "./ModeToggle"
-import { MdOutlineSettings, MdOutlineDashboard } from "react-icons/md"
-import { FiPackage, FiUser } from "react-icons/fi"
+import { FiLogOut, FiPackage } from "react-icons/fi"
 import { LuPackagePlus } from "react-icons/lu"
 import Link from "next/link"
+import useAuthInfo from "@/hooks/useAuth"
+import { useRouter } from "next/navigation"
 
 function Toggler({
   defaultExpanded = false,
@@ -37,6 +38,9 @@ function Toggler({
 }
 
 export function AdminSidebar({ className }: { className?: string }) {
+  const AuthContext = useAuthInfo()
+  const router = useRouter()
+  const { logout } = AuthContext
   return (
     <div
       className={cn(
@@ -70,12 +74,17 @@ export function AdminSidebar({ className }: { className?: string }) {
                 Criar Vaga
               </Button>
             </Link>
-            <Link href="/profile">
-              <Button variant="ghost" className="w-full justify-start gap-2">
-                <FiUser/>
-              Criar Usuário
-              </Button>
-            </Link>
+            <Button
+              onClick={() => {
+                logout()
+                router.push("/")
+              }}
+              variant="ghost"
+              className="w-full justify-start gap-2"
+            >
+              <FiLogOut />
+              Sair
+            </Button>
           </div>
         </div>
       </div>

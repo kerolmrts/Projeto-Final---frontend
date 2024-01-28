@@ -28,13 +28,12 @@ export const getJobs = async () => {
     return []
   }
 }
+
 export const getJobById = async (id: string) => {
   try {
-    const response = await fetch(`${apiUrl}/jobs/${id}`)
-    if (response.ok) {
-      const data = await response.json()
-      return data
-    }
+    const response = await axios.get(`${apiUrl}/jobs/${id}`)
+    console.log(response.data)
+    return response.data
   } catch (error) {
     console.error("Erro ao carregar os vagas", error)
     return []
@@ -43,15 +42,9 @@ export const getJobById = async (id: string) => {
 
 export const deleteJobById = async (id: string) => {
   try {
-    const response = await fetch(`${apiUrl}/jobs/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    if (response.ok) {
-      const data = await response.json()
-      return data
+    const response = await axios.delete(`${apiUrl}/jobs/${id}`)
+    if (response.status === 200) {
+      return response.data
     }
   } catch (error) {
     console.error("Erro ao deletar o vaga", error)
@@ -74,18 +67,15 @@ export const updateJobClick = async (id: string) => {
   }
 }
 
-export const editJobById = async (data: object, id: string) => {
+export const editJobById = async (id: string, data: object) => {
   try {
-    const response = await fetch(`${apiUrl}/jobs/${id}`, {
-      method: "PATCH",
+    const response = await axios.put(`${apiUrl}/jobs/${id}`, data, {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
     })
-    if (response.ok) {
-      const data = await response.json()
-      return data
+    if (response.status === 200) {
+      return response.data
     }
   } catch (error) {
     console.error("Erro ao editar o vaga", error)

@@ -10,6 +10,7 @@ import {
 import { Job } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
 
+
 export const JobCard = ({ job }: { job: Job }) => {
   
   const date = new Date(job.job_createdAt.toString())
@@ -33,7 +34,9 @@ export const JobCard = ({ job }: { job: Job }) => {
         </p>
       </CardContent>
       <CardFooter>
-        <p className="text-base">Publicada em {formattedDate}</p>
+        <p className="text-base">
+          Publicada em {formatDate(new Date(job.job_createdAt))}
+        </p>
       </CardFooter>
     </Card>
   )
