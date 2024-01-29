@@ -29,8 +29,9 @@ const CardCarousel = ({
   return (
     <div className={cn("flex flex-col gap-2", className)}>
       {jobs.slice(0, 3).map((job: Job) => (
-        <Link href="/vagas">
-        <Card className="h-40">
+        <Card className="h-40"
+        key={job._id}>
+          <Link href="/vagas">
           <div className="flex">
             <img
               src={job.job_image}
@@ -44,8 +45,8 @@ const CardCarousel = ({
               </p>
             </div>
           </div>
-        </Card>
         </Link>
+        </Card>
       ))}
     </div>
   )
